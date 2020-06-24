@@ -16,6 +16,7 @@ self.onmessage = (e) => {
                     percentage: 100,
                     hash: spark.end()
                 })
+                self.close();
             } else {
                 percentage += 100/fileChunkList.length; // 根据转化了几个来告诉主线程的进度条到哪。
                 self.postMessage({

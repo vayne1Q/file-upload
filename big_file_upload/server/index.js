@@ -1,5 +1,4 @@
 const http = require('http');
-const path = require('path');
 const Controller = require("./controller");
 
 const server = http.createServer();
@@ -22,6 +21,10 @@ server.on('request', async (req, res) => {
         // 上传切片处理
         await controller.handleFormData(req, res);
     }
+
+    if (req.url === '/merge') {
+        await controller.handleMerge(req, res);
+    }
 })
 
-server.listen('3000', () => console.log('服务已启动'))
+server.listen('4000', () => console.log('正在监听4000端口'))
