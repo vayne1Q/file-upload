@@ -2,9 +2,9 @@
   <div id="app">
     <div>
       <input type="file" id="file" @change="handleFileChange"/>
-      <el-button @click="handleUpload">上传</el-button>
-      <el-button @click="handleResume">恢复</el-button>
-      <el-button @click="handlePause">暂停</el-button>
+      <el-button @click="handleUpload" :disabled="!container.file">上传</el-button>
+      <el-button @click="handleResume" :disabled="status !== 'pause'">恢复</el-button>
+      <el-button @click="handlePause" :disabled="status !== 'uploading'">暂停</el-button>
     </div>
     <div>
       <div>文件计算hash</div>
